@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Difference between var,let and const</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+</head>
+<body>
+    <font size="6" color="blue">var</font>
+    <p>the scope of a variable defined with the keyword "var" is limited to the "function" within which is defined.
+    If it is difined outsideany function ,the scope of the variable is global.
+         var is "function scoped".</p>
+    <script>
+        var a; //global variable
+        a=1;
+        console.log("Value of a is ",a);
+
+        var sites={
+            s1:"cwipedia.in",
+            s2:"unknonw"
+            //these are objects
+        }
+        console.log(sites);
+        console.table(sites);
+    </script>
+    <font size="6" color="blue">let</font>
+    <p>
+        let: The scope of a variable defined with the keyword “let” or “const” is limited to the “block” defined by curly braces i.e. {} .
+“let” and “const” are“block scoped”.
+    </p>
+    <script>
+        {
+            let name="Shubh";// loacl scope 
+            console.log("Name: ",name); 
+        }
+    </script>
+    <font size="4" color="red">Why would you chose “let” over “var”?</font>
+    <p>
+While programming in Javascript it is a good practice not to define variables as global variables.
+ This is because it is possible to inadvertently modify the global variable from anywhere within the Javascript code.
+ To prevent this one needs to ensure that the scope of the variables are limited to the code block within which they need to be executed.
+    </p>
+    <font size="6" color="blue">const</font>
+    <p>
+        const: The scope of a variable defined with the keyword “const” is limited to the block defined by curly braces. However if a variable is defined with keyword const, it cannot be reassigned.
+“const” cannot be re-assigned to a new value. However it CAN be mutated.</p>
+<script>
+{
+    const a = [1,2,3];
+    const b = {name: "hello"};
+    a.push(4,5);     //mutating the value of constant "a"
+    b.name="World";  //mutating the value of constant "b"
+    
+    console.log(a); //this will show [1,2,3,4,5]
+    console.log(b); //this will show {name: "World"}
+    
+   }
+   /* This code will run without any errors, and shows that we CAN mutate the values that are defined by "const" */
+        const s="Constant";
+        console.log(s);
+        s="Not const";
+        console.log("it may throw error",s);
+        /In addition the variable cannot be reassigned to a different value./
+        
+    </script>
+    <font size="6" color="blue">summary</font>
+    <p>
+    var is functional scope.
+    let, const are both BLOCK scope.
+    const, cannot be reassigned, however it is mutable.
+    </p>
+</body>
+</html>
